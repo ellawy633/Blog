@@ -10,32 +10,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author admin
  */
 @Entity
-public class Article implements Serializable {
+public class NumSecu implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     
-    //artcle utilisateur
-    @ManyToOne
-     @JoinColumn(name = "utilisateur_id")
+    
+    
+    
+    
+    @OneToOne(mappedBy = "numSecu")
     private Utilisateur utilisateur;
     
-    
-    
-    
-    
-    
+
     public Long getId() {
         return id;
     }
@@ -54,10 +50,10 @@ public class Article implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Article)) {
+        if (!(object instanceof NumSecu)) {
             return false;
         }
-        Article other = (Article) object;
+        NumSecu other = (NumSecu) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -66,7 +62,7 @@ public class Article implements Serializable {
 
     @Override
     public String toString() {
-        return "blog.Article[ id=" + id + " ]";
+        return "blog.NumSecu[ id=" + id + " ]";
     }
     
 }

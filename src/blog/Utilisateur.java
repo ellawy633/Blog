@@ -12,9 +12,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
 
 /**
  *
@@ -48,6 +50,21 @@ public class Utilisateur implements Serializable {
      //Commentaire
      @OneToMany(mappedBy = "utilisateur")
     private List<Commentaire> commentaires= new ArrayList<>();
+     
+     
+     
+     
+     //utilisateur massage
+     @ManyToMany
+     @JoinTable(name = "utilisateur_message1")
+     private List<Message> messages1 =new ArrayList<>();
+     
+     
+     
+     //utilisateur num
+    @OneToOne
+    @JoinColumn(name = "utilisateur_secu")
+    private NumSecu numSecu;
     
     
     

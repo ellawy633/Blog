@@ -6,11 +6,14 @@
 package blog;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 /**
@@ -30,6 +33,13 @@ public class Message implements Serializable {
      @JoinColumn(name = "utilisateur_id")
     private Utilisateur utilisateur;
     
+    
+    
+    
+    
+    //messag utilisateur
+    @ManyToMany(mappedBy = "messages1")
+    private List<Utilisateur> utilisateurs =new  ArrayList<>();
     
     
 
